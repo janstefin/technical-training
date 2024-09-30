@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <odoo>
-<record id="estate_property_action" model="ir.actions.act_window">
-    <field name="name">Estate property</field>
-    <field name="res_model">estate_property</field>
-    <field name="view_mode">list,form</field>
-</record>
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">Estate property</field>
+        <field name="res_model">estate_property</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
-        <record id="estate_property_view_tree" model="ir.ui.view">
+    <record id="estate_property_view_tree" model="ir.ui.view">
         <field name="name">estate_property.tree</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
@@ -25,35 +25,37 @@
         <field name="name">estate_property.form</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
-<form string="Property">
-    <sheet>
-        <div class="oe_title">
-            <h1 class="mb32">
-                 <field name="name"/>
-            </h1>
-        </div>
-        <group>
-            <group>
-               <field name="date_availability"/>
-            </group>
-            <group>
-                <field name="expected_price"/>
-                <field name="selling_price"/>
-            </group>
-        </group>
-        <notebook>
+            <form string="Property">
+                <sheet>
+                    <div class="oe_title">
+                        <h1 class="mb32">
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
+                        </group>
+                    </group>
+                    <notebook>
 
-            <page string="Description">
-                <group><group>
-                <field name="description"/>
-                <field name="bedrooms"/>
-                <field name="garden"/>
-                <field name ="garden_orientation" />
-                </group></group>
-            </page>
-        </notebook>
-    </sheet>
-</form>
+                        <page string="Description">
+                            <group>
+                                <group>
+                                    <field name="description"/>
+                                    <field name="bedrooms"/>
+                                    <field name="garden"/>
+                                    <field name="garden_orientation"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
         </field>
     </record>
-    </odoo>
+</odoo>
