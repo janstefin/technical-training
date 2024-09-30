@@ -40,7 +40,7 @@
                         </group>
                     </group>
 
-
+<notebook>
                         <page string="Description">
                             <group>
                                 <group>
@@ -55,7 +55,7 @@
                             </group>
                         </page>
 
-                                        <notebook>
+
 
                         <page string="More info">
                             <group>
