@@ -25,19 +25,31 @@
         <field name="name">estate_property.form</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
-<form string="Test">
+<form string="Property">
     <sheet>
+        <div class="oe_title">
+            <h1 class="mb32">
+                 <field name="name"/>
+            </h1>
+        </div>
         <group>
             <group>
-                <field name="name"/>
+               <field name="date_availability"/>
             </group>
             <group>
-                <field name="last_seen"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
             </group>
         </group>
         <notebook>
+
             <page string="Description">
+                <group><group>
                 <field name="description"/>
+                <field name="bedrooms"/>
+                <field name="garden"/>
+                <field name ="garden_orientation" />
+                </group></group>
             </page>
         </notebook>
     </sheet>
