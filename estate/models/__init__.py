@@ -1,2 +1,2 @@
-from odoo import models
+from . import estate_property
 
