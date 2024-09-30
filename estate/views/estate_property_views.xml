@@ -64,8 +64,8 @@
                 <field name="name" string="Title"/>
                 <field name="postcode"/>
                 <seperator/>
-                <filter string="Available" name="available"
-                        domain="[('state', 'in', ['new', offer_received'])]"/>
+<filter string="Available" name="available" domain="[('state', 'in', ['new', 'offer_received'])]"/>
+
             </search>
         </field>
     </record>
