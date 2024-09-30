@@ -3,5 +3,17 @@
 <record id="estate_property_action" model="ir.actions.act_window">
     <field name="name">Estate property</field>
     <field name="res_model">estate_property</field>
-    <field name="view_mode">list,form</field></record>
+    <field name="view_mode">list,form</field>
+</record>
+
+        <record id="estate_property_view_tree" model="ir.ui.view">
+        <field name="name">estate_property.tree</field>
+        <field name="model">estate_property</field>
+        <field name="arch" type="xml">
+            <tree string="Properties">
+                <field name="name"/>
+                <field name="bedrooms"/>
+            </tree>
+        </field>
+    </record>
     </odoo>
