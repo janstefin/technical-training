@@ -58,7 +58,15 @@
                         </page>
 
                     <page string="Offers">
-                                <field name="offer_ids"/>
+                                <field name="offer_ids">
+                                    <list>
+                                        <field name="price"/>
+                                        <field name="status"/>
+                                        <field name="property_id"/>
+                                        <field name="partner_id"/>
+                                    </list>
+
+                                </field>
 
 
                         </page>
