@@ -14,4 +14,7 @@ class EstateProperty(models.Model):
     bedrooms = fields.Integer()
     garden_orientation = fields.Selection([("south", "South"), ("north", "North")])
     last_seen = fields.Datetime("Last Seen", default=fields.Datetime.now)
+    salesperson_id = fields.Many2one("res.users", default = lambda self: self.env.user)
+    buyer_id = fields.Many2one("res.partner", copy=False)
+    offer_ids = fields.One2many("estate.property.offer", "property_id")
 

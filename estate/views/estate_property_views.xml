@@ -55,6 +55,22 @@
                             </group>
                         </page>
                     </notebook>
+
+                                        <notebook>
+
+                        <page string="More info">
+                            <group>
+                                <group>
+                                    <field name="offer_ids"/>
+                                    <field name="buyer_id"/>
+                                    <field name="salesperson_id"/>
+                                </group>
+                                <group>
+                                    <field name="state"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
