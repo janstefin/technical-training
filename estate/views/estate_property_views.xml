@@ -49,6 +49,9 @@
                                     <field name="garden"/>
                                     <field name="garden_orientation"/>
                                 </group>
+                                <group>
+                                    <field name="state"/>
+                                </group>
                             </group>
                         </page>
                     </notebook>
@@ -65,7 +68,9 @@
                 <field name="postcode"/>
                 <separator/>
 <filter string="Available" name="available" domain="[('state', 'in', ['new', 'offer_received'])]"/>
-
+<group expand="1" string="Group by">
+    <filter string="PostCode" name="postcode" context="{'group by':'postcode'}"/>
+</group>
             </search>
         </field>
     </record>
