@@ -6,6 +6,7 @@ class EstateProperty(models.Model):
 
     name = fields.Char(required=True, default="Unknown")
     description = fields.Text()
+    postcode = fields.Integer()
     date = fields.Date()
     expected_price = fields.Float()
     garden = fields.Boolean()
