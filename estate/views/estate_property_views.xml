@@ -12,6 +12,11 @@
         <field name="arch" type="xml">
             <list string="Properties">
                 <field name="name"/>
+                <field name="description"/>
+                <field name="garden_orientation"/>
+                <field name="last_seen"/>
+                <field name="garden"/>
+                <field name="expected_price"/>
                 <field name="bedrooms"/>
             </list>
         </field>
