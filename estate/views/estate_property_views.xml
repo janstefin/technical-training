@@ -69,7 +69,7 @@
                 <separator/>
 <filter string="Available" name="available" domain="[('state', 'in', ['new', 'offer_received'])]"/>
 <group expand="1" string="Group by">
-    <filter string="PostCode" name="postcode" context="{'group by':'postcode'}"/>
+    <filter string="PostCode" name="postcode" context="{'group_by':'postcode'}"/>
 </group>
             </search>
         </field>
