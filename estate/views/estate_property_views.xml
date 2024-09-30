@@ -63,7 +63,7 @@
             <search string="Pro">
                 <field name="name" string="Title"/>
                 <field name="postcode"/>
-                <seperator/>
+                <separator/>
 <filter string="Available" name="available" domain="[('state', 'in', ['new', 'offer_received'])]"/>
 
             </search>
