@@ -8,4 +8,5 @@ class EstatePropertyOffer(models.Model):
     status = fields.Selection([("accepted", "Accepted"), ("refused", "Refused")])
     property_id = fields.Many2one("estate_property", required=True)
     partner_id = fields.Many2one("res.partner", required=True)
+    validity = fields.Number()
     deadline = fields.Date(default=fields.Datetime.now, days=14)
