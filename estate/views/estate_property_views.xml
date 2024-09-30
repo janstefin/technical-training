@@ -40,7 +40,7 @@
                         </group>
                     </group>
 
-<notebook>
+                    <notebook>
                         <page string="Description">
                             <group>
                                 <group>
@@ -48,6 +48,8 @@
                                     <field name="bedrooms"/>
                                     <field name="garden"/>
                                     <field name="garden_orientation"/>
+                                    <field name="state"/>
+
                                 </group>
                                 <group>
                                     <field name="state"/>
@@ -55,16 +57,18 @@
                             </group>
                         </page>
 
+                    <page string="Offers">
+                                <field name="offer_ids"/>
 
 
+                        </page>
                         <page string="More info">
                             <group>
                                 <group>
                                     <field name="buyer_id"/>
                                     <field name="salesperson_id"/>
-                                </group>
-                                <group>
-                                    <field name="state"/>
+                                    <field name="tag_ids"/>
+                                    <field name="property_type_id"/>
                                 </group>
                             </group>
                         </page>
@@ -81,10 +85,12 @@
                 <field name="name" string="Title"/>
                 <field name="postcode"/>
                 <separator/>
-<filter string="Available" name="available" domain="[('state', 'in', ['new', 'offer_received'])]"/>
-<group expand="1" string="Group by">
-    <filter string="PostCode" name="postcode" context="{'group_by':'postcode'}"/>
-</group>
+                <filter string="Available" name="available"
+                        domain="[('state', 'in', ['new', 'offer_received'])]"/>
+                <group expand="1" string="Group by">
+                    <filter string="PostCode" name="postcode"
+                            context="{'group_by':'postcode'}"/>
+                </group>
             </search>
         </field>
     </record>
