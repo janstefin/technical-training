@@ -5,6 +5,7 @@ class EstateProperty(models.Model):
     _description = "Estate Property model"
 
     name = fields.Char(required=True, default="Unknown")
+    state = fields.Selection([("new", "New"), ("offer_received", "Offer Received")])
     description = fields.Text()
     postcode = fields.Integer()
     date = fields.Date()
