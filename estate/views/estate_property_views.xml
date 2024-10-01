@@ -31,7 +31,7 @@
                                 type="object"/>
                         <button name="action_cancel_property" string="CANCEL"
                                 type="object"/>
-                        <field name="state" widget="statusbar" statusbar_visible="open,posted,confirm"/>
+                        <field name="state" widget="statusbar"/>
 
 
                     </header>
@@ -83,6 +83,8 @@
                                     <field name="status"/>
                                     <field name="property_id"/>
                                     <field name="partner_id"/>
+                                    <button name="action_accept_offer" string="Accept" type="object" icon="fa-check"/>
+                                    <button name="action_refuse_offer" string="Refuse" type="object" icon="fa-times"/>
                                 </list>
 
                             </field>
