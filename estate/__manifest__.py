@@ -3,7 +3,7 @@
     "version": "16.0.0",  # Version
     "application": True,
     # This line says the module is an App, and not a modules
-    "depends": ["account", "estate"],  # dependencies
+    "depends": ["account", "base"],  # dependencies
     "data": ["security/ir.model.access.csv",
              "views/estate_property_views.xml",
             "views/offer_views.xml",
