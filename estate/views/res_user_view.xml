@@ -7,9 +7,9 @@
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
                 <page name="property_ids" string="Properties">
-          <field name="property_ids"/>
+                    <field name="property_ids"/>
                 </page>
-        </xpath>
+            </xpath>
         </field>
     </record>
 </odoo>
