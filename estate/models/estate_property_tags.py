@@ -5,3 +5,4 @@ class EstatePropertyTags(models.Model):
     _description = "Estate Property Tags"
 
     name = fields.Char(required=True)
+    color = fields.Integer()
