@@ -65,3 +65,7 @@ class EstateProperty(models.Model):
 
     def action_cancel_property(self):
         self.state = "canceled"
+
+    _sql_constraints = [
+        ("unique_name", "UNIQUE(name)", "The name should be unique")
+    ]
