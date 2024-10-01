@@ -3,7 +3,7 @@ from odoo.exceptions import UserError
 
 
 class EstateProperty(models.Model):
-    _inherit = "estate.property"
+    _inherit = "estate_property"
 
 
     def action_sell_property(self):
