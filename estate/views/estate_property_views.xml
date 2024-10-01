@@ -43,6 +43,8 @@
                             <field name="property_type_id"/>
                             <field name="postcode"/>
                             <field name="date"/>
+                            <field name="state"/>
+
                         </group>
                         <group>
                             <field name="best_price"/>
