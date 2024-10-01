@@ -31,9 +31,6 @@
                     <t t-name="kanban-box">
                         <div>
                             <field name="name"/>
-                            <div t-if="record.state.raw_value == 'new'">
-                                This is new!
-                            </div>
                         </div>
                     </t>
                 </templates>
