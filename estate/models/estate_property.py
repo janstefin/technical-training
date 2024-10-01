@@ -86,9 +86,14 @@ class EstateProperty(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        properties = super().create(vals_list)
-        properties.state = "offer_accepted"
-        return properties
+        for vals in vals_list:
+            property = self.env["estate_property"].browse(vals["property_id"])
+            if property.offer_ids:
+                min_price = min(property.offer_ids.mapped("price"))
+                if(vals["price"]<=min_price):
+                    raise UserError(_("The offer must be higer then %s") % min_price)
+        return super().create(vals_list)
+
 
     def action_sell_property(self):
         for property in self:
