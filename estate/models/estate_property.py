@@ -84,15 +84,7 @@ class EstateProperty(models.Model):
                 raise UserError(_("Only new or canceled property can be "
                                   "deleted"))
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            property = self.env["estate_property"].browse(vals["property_id"])
-            if property.offer_ids:
-                min_price = min(property.offer_ids.mapped("price"))
-                if(vals["price"]<=min_price):
-                    raise UserError(_("The offer must be higer then %s") % min_price)
-        return super().create(vals_list)
+
 
 
     def action_sell_property(self):

@@ -1,4 +1,5 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
+from odoo.exceptions import UserError
 
 
 class EstatePropertyOffer(models.Model):
@@ -20,6 +21,18 @@ class EstatePropertyOffer(models.Model):
             create_date = estate.create_date or fields.Date.today()
             estate.date_deadline = fields.Date.add(create_date,
                                                    days=estate.validity)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            property = self.env["estate_property"].browse(vals["property_id"])
+            if property.offer_ids:
+                min_price = min(property.offer_ids.mapped("price"))
+                if (vals["price"] <= min_price):
+                    raise UserError(
+                        _("The offer must be higer then %s") % min_price)
+        return super().create(vals_list)
+
 
     def _inverse_date_deadline(self):
         for estate in self:
