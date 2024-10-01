@@ -31,6 +31,7 @@ class EstatePropertyOffer(models.Model):
                 if (vals["price"] <= min_price):
                     raise UserError(
                         _("The offer must be higer then %s") % min_price)
+                property.state = "offer_received"
         return super().create(vals_list)
 
 
