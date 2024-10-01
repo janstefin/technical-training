@@ -9,6 +9,7 @@
             "views/offer_views.xml",
 "views/tags_views.xml",
 "views/types_views.xml",
+             "views/res_user_view.xml",
              "views/estate_menus.xml",
              ],
     "installable": True,
