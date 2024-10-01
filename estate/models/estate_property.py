@@ -11,7 +11,8 @@ class EstateProperty(models.Model):
 
     state = fields.Selection(
         [("new", "New"), ("offer_received", "Offer Received"),
-         ("sold", "Sold"), ("canceled", "Canceled")])
+         ("sold", "Sold"), ("canceled", "Canceled"),
+         ("offer_accepted", "Offer accepted")])
     description = fields.Text()
     postcode = fields.Integer()
     date = fields.Date()
@@ -49,8 +50,8 @@ class EstateProperty(models.Model):
         for property in self:
             if (not float_is_zero(property.selling_price,
                                   precision_rounding=0.01) and float_compare(
-                    property.selling_price, 0.9 * property.expected_price,
-                    precision_rounding=0.01) < 0):
+                property.selling_price, 0.9 * property.expected_price,
+                precision_rounding=0.01) < 0):
                 raise ValidationError(
                     _("The selling price should not be lower then 90% of the "
                       "expected price"))
@@ -79,9 +80,15 @@ class EstateProperty(models.Model):
     @api.ondelete(at_uninstall=False)
     def _unlink_if_new_canceled(self):
         for property in self:
-            if property.state not in ("new", "canceled"):
+            if property.state in ("new", "canceled"):
                 raise UserError(_("Only new or canceled property can be "
                                   "deleted"))
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        properties = super().create(vals_list)
+        properties.state = "offer_accepted"
+        return properties
 
     def action_sell_property(self):
         for property in self:
