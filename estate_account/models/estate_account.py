@@ -7,11 +7,9 @@ class EstateProperty(models.Model):
 
 
     def action_sell_property(self):
+        super().action_sell_property()
         vals_list=[]
         for property in self:
-            if property.state == "canceled":
-                raise UserError(_("Canceled properties cannot be sold"))
-            property.state = "sold"
             vals = {
                 "partner_id": property.buyer_id.id,
                 "move_type": "out_invoice",
@@ -31,4 +29,3 @@ class EstateProperty(models.Model):
             }
             vals_list.append(vals)
         self.env["account.move"].create(vals_list)
-        return super().action_sell_property()

@@ -86,7 +86,11 @@ class EstateProperty(models.Model):
                 raise UserError(_("Only new or canceled property can be "
                                   "deleted"))
 
-
+    def action_sell_property(self):
+        for property in self:
+            if property.state == "canceled":
+                raise UserError(_("Canceled properties cannot be sold"))
+            property.state = "sold"
 
     def action_cancel_property(self):
         self.state = "canceled"
