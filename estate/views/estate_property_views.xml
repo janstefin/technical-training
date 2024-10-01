@@ -3,7 +3,7 @@
     <record id="estate_property_action" model="ir.actions.act_window">
         <field name="name">Estate property</field>
         <field name="res_model">estate_property</field>
-        <field name="view_mode">list,form, kanban</field>
+        <field name="view_mode">kanban,list,form</field>
     </record>
     <record id="estate_property_view_tree" model="ir.ui.view">
         <field name="name">estate_property.tree</field>
@@ -21,6 +21,22 @@
             </list>
         </field>
     </record>
+    <record id="estate_property_view_kanban" model="ir.ui.view">
+        <field name="name">estate_property.kanban</field>
+        <field name="model">estate_property</field>
+        <field name="arch" type="xml">
+            <kanban string="Kanban">
+        <templates>
+        <t t-name="kanban-box">
+            <div>
+                <field name="name"/>
+            </div>
+        </t>
+    </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="estate_property_view_form" model="ir.ui.view">
         <field name="name">estate_property.form</field>
         <field name="model">estate_property</field>

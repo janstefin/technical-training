@@ -1,9 +1,0 @@
-<kanban>
-    <templates>
-        <t t-name="kanban-box">
-            <div>
-                <field name="name"/>
-            </div>
-        </t>
-    </templates>
-</kanban>
