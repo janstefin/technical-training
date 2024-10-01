@@ -3,7 +3,6 @@ from odoo.tools.float_utils import float_is_zero, float_compare
 from odoo.exceptions import UserError, ValidationError
 
 
-
 class EstateProperty(models.Model):
     _name = "estate_property"
     _description = "Estate Property model"
@@ -48,8 +47,13 @@ class EstateProperty(models.Model):
     @api.constrains("selling_price", "expected_price")
     def _check_selling_price(self):
         for property in self:
-            if(not float_is_zero(property.selling_price, precision_rounding=0.01) and float_compare(property.selling_price, 0.9* property.expected_price, precision_rounding=0.01) < 0):
-                raise ValidationError(_("The selling price should not be lower then 90% of the expected price"))
+            if (not float_is_zero(property.selling_price,
+                                  precision_rounding=0.01) and float_compare(
+                    property.selling_price, 0.9 * property.expected_price,
+                    precision_rounding=0.01) < 0):
+                raise ValidationError(
+                    _("The selling price should not be lower then 90% of the "
+                      "expected price"))
 
     @api.depends("garden_area", "living_area")
     def _compute_total_area(self):
@@ -71,6 +75,13 @@ class EstateProperty(models.Model):
             self.garden_orientation = "north"
         else:
             self.garden_area = self.garden_orientation = False
+
+    @api.ondelete(at_uninstall=False)
+    def _unlink_if_new_canceled(self):
+        for property in self:
+            if property.state not in ("new", "canceled"):
+                raise UserError(_("Only new or canceled property can be "
+                                  "deleted"))
 
     def action_sell_property(self):
         for property in self:
