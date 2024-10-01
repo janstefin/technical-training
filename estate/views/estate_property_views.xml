@@ -38,6 +38,7 @@
                             <field name="date"/>
                         </group>
                         <group>
+                            <field name="best_price"/>
                             <field name="expected_price"/>
                             <field name="best_offer"/>
                             <field name="selling_price"/>
