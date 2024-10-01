@@ -7,6 +7,7 @@ class EstateProperty(models.Model):
     _description = "Estate Property model"
 
     name = fields.Char(required=True)
+
     state = fields.Selection(
         [("new", "New"), ("offer_received", "Offer Received"),
          ("sold", "Sold"), ("canceled", "Canceled")])
@@ -35,6 +36,12 @@ class EstateProperty(models.Model):
                                      default=lambda self: self.env.user)
     buyer_id = fields.Many2one("res.partner", copy=False)
     offer_ids = fields.One2many("estate_property.offer", "property_id")
+
+    _sql_constraints = [
+        ("unique_name", "UNIQUE(name)", "The name should be unique!"),
+        ("check_selling_price", "CHECK(selling_price >=0)",
+         "The selling price must be positive")
+    ]
 
     @api.depends("garden_area", "living_area")
     def _compute_total_area(self):
@@ -65,7 +72,3 @@ class EstateProperty(models.Model):
 
     def action_cancel_property(self):
         self.state = "canceled"
-
-    _sql_constraints = [
-        ("unique_name", "UNIQUE(name)", "The name should be unique")
-    ]
