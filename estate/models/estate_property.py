@@ -48,3 +48,11 @@ class EstateProperty(models.Model):
             else:
                 property.best_price = 0
 
+    @api.depends("garden")
+    def _onchange_garden(self):
+        if self.garden:
+            self.garden_area = 10
+            self.garden_orientation = "north"
+        else:
+            self.garden_area = self.garden_orientation = False
+
